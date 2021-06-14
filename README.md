@@ -1,12 +1,18 @@
 
-PROJECT MILESTONE 1
+# PROJECT MILESTONE 1
 
 
 
-Project Title:
+## Project Title:
 	- My Weekend In Miami
 
-Vision Statement:
+## Team Members:
+	- Tara Panzarino
+	- Rajat Thaker
+	- Cody Thornton
+	- Brock Whitbread-Cole
+
+## Vision Statement:
 	- Miami, Florida is one of the top travel destinations in the
 		United States. As a domestic travel location, Miami is suitable
 		for brief weekend getaways. Our application allows
@@ -30,14 +36,12 @@ Vision Statement:
 	- If we have time, we could also have our application
 		output itineraries to users' computers and smart phones
 		via an e-mail and SMS messaging for easy reference while traveling.
-		
 	- If we have time, utilize a public API for data
-
 	- As a hypothetical product, if we continued to develop this
 		application, it could conceivably begin to generate revenue
 		by hosting advertisements from local Miami businesses.
 
-Motivation:
+## Motivation:
 	- We anticipate that building this website will give us
 		familiarity with HTML, CSS, and Javascript. Additionally,
 		it will allow us to build and interact with a backend
@@ -50,7 +54,7 @@ Motivation:
 		in the software development industry including Agile development,
 		and version control software.
 
-Risks
+## Risks
 	- Unable to utilize API for data, or desired data is unavailable
 	- Some team members are not familiar with coding languages used
 	- Some team members do not have web development experience
@@ -58,14 +62,14 @@ Risks
 	- Some scheduling conflict, remote class makes it difficult to meet
 	- Some team members are unfamilar with use of databases
 
-Mitigation Strategy for Risks
+## Mitigation Strategy for Risks
 	- Some team members have experience with web delevopment and using databases
 	- Set up recurring meeting that works with all member's schedules
 	- Utilize text file for database initially, utilize free resources
 	- Create roles for web development to avoid overlap, teaching other members
 
 
-Development Method
+## Development Method
 	- Behavior Driven Development (BDD)
 		- Short-term goals stated as user stories
 		- Examples:
@@ -85,5 +89,5 @@ Development Method
 	- Weekly scrum meetings with rotating Scrum Master
 	- Possible bi-weekly meetings closer to due date
 
-Project Tracking Software
+## Project Tracking Software
 	- Github Project
