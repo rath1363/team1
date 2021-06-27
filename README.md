@@ -1,7 +1,26 @@
 
 # PROJECT MILESTONE 1
 
+## How to Run the Application:
+	- Create a local directory to store the project
+	- With this directory as your present working directory, in terminal
+		download the project with git clone.
+		~$ git clone https://github.com/rath1363/team1/
+	- Navigate to the project.
+		~$ cd team1
+	- Activate the virtual environment.
+		~$ source venv/bin/activate
+	- You can now execute the application.
+		~$ ./app.py
+	- In your web browser, navigate to: http://127.0.0.1:5000/
 
+## File Structure:
+	- static     : static files (CSS, Javascript, images, .txt)
+	- templates  : html pages
+	- venv       : Python virtual environment
+	- README.md  : this file
+	- mockup.pptx: LoFi mockup/storyboard of app
+	- app.py     : application main
 
 ## Project Title:
 	- My Weekend In Miami
@@ -48,9 +67,9 @@
 		database to store information related to lodging, dining,
 		and other activities in Miami. It will also give us practice
 		with designing login and user authentication systems and
-		exporting information into files and perhaps e-mails and 
-		SMS messages as well. As we accomplish these goals, this 
-		project will also give us practice with essential practices 
+		exporting information into files and perhaps e-mails and
+		SMS messages as well. As we accomplish these goals, this
+		project will also give us practice with essential practices
 		in the software development industry including Agile development,
 		and version control software.
 
