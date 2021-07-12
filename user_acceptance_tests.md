@@ -23,10 +23,10 @@ User is able to navigate to the "/signup" URL. User will input a valid username,
 User should be able to signup with valid credentials and should be stopped from signup if their credentials are invalid. Once signd up successfully, a user should automatically be logged in and redirected to the trip planner steps in the application.
 
 #### Actual Result
--
+N/A
 
 #### Status (Pass/Fail)
--
+N/A
 
 #### Notes
 N/A
@@ -35,49 +35,63 @@ N/A
 The user's inforation is stored in the database securely, with their password hashed (using bcrypt) before being stored in the DB. The user is notified that their signup was successful and that they are able to start planning their trip.
 
 ### 2. Validate Login Functionalty
-Use case name
+
+#### Use case name
 Verify login with valid user name and password
-Description
-    Test the "Weekend in Miami - Login" page and user experience
-Pre-conditions
-    User has valid username and password. A valid username is any string made up of
-    alphanumeric letters and avoids special symbols. A valid password is at least 
-    8 characters long, includes at least one uppercase and lowercase letter, one 
-    number, and one special character.
-Test steps
-    1. Navigate to login page at "/login"
-    2. Provide valid user name (no special characters)
-    3. Provide valid password (1 each of uppercase, lowercase, number, and special character)
-    4. Click login button
-Expected result
-    User should be able to login, they should see a confirmation/success message, and be redirected to the trip planner steps in the application.
-Actual result
-    -
-Status (Pass/Fail)
-    -
-Notes
-    N/A
-Post-conditions
-    User credentials are validated with the database securely and, if they provide the correct login information, are successfully signed into their account. The session details are logged in database and allow the user to access certain restricted areas of the application. After logging in, the user should see some small UI changes (links to newly available pages like a profile, a button to Logout) indicating they are now logged in.
+
+#### Description
+Test the "Weekend in Miami - Login" page and user experience
+
+#### Pre-conditions
+User has valid username and password. A valid username is any string made up of alphanumeric letters and avoids special symbols. A valid password is at least 8 characters long, includes at least one uppercase and lowercase letter, one number, and one special character.
+
+#### Test steps
+1. Navigate to login page at "/login"
+2. Provide valid user name (no special characters)
+3. Provide valid password (1 each of uppercase, lowercase, number, and special character)
+4. Click login button
+
+#### Expected result
+User should be able to login, they should see a confirmation/success message, and be redirected to the trip planner steps in the application.
+
+#### Actual result
+N/A
+
+#### Status (Pass/Fail)
+N/A
+
+#### Notes
+N/A
+
+#### Post-conditions
+User credentials are validated with the database securely and, if they provide the correct login information, are successfully signed into their account. The session details are logged in database and allow the user to access certain restricted areas of the application. After logging in, the user should see some small UI changes (links to newly available pages like a profile, a button to Logout) indicating they are now logged in.
 
 ### 3. Validate Logout Functionalty
-Use case name
-    Verify logout when user clicks the "Logout" button in the navigation bar.
-Description
-    Test the "Weekend in Miami" logout functionality and user experience
-Pre-conditions
-    User has a valid, active session on the database and is able to see the "Logout" button in the navigation bar while on any page in the application.
-Test steps
-    1. Click logout button.
-    2. User should be shown a confirmation message that they have logged out and be redirected to the homepage (or any other appropriate page for an unverified user)
-    3. A logged out user should not be able to visit certain pages reserved for signed in users.
-Expected result
-    User should be able to logout, they should see a confirmation/success message, and be redirected to a public page in the application.
-Actual result
-    -
-Status (Pass/Fail)
-    -
-Notes
-    N/A
-Post-conditions
-    User's session is found in the database and deleted, effectively logging them out from the application and restricting their access to protected resources.
+#### Use case name
+Verify logout when user clicks the "Logout" button in the navigation bar.
+
+#### Description
+Test the "Weekend in Miami" logout functionality and user experience
+
+#### Pre-conditions
+User has a valid, active session on the database and is able to see the "Logout" button in the navigation bar while on any page in the application.
+
+#### Test steps
+1. Click logout button.
+2. User should be shown a confirmation message that they have logged out and be redirected to the homepage (or any other appropriate page for an unverified user)
+3. A logged out user should not be able to visit certain pages reserved for signed in users.
+
+#### Expected result
+User should be able to logout, they should see a confirmation/success message, and be redirected to a public page in the application.
+
+#### Actual result
+N/A
+
+#### Status (Pass/Fail)
+N/A
+
+#### Notes
+N/A
+
+#### Post-conditions
+User's session is found in the database and deleted, effectively logging them out from the application and restricting their access to protected resources.
