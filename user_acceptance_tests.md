@@ -3,32 +3,40 @@
 The following user acceptance tests will test the signup, login, and logout capabilities of a user who wants to create an account on the application and use that account to plan their weekend in Miami. In general, a user should be able to create an account, access that account and the functionality of the app through that account, and be able to leave their account and log out of the app at any time.
 
 ### 1. Validate Signup Functionality
-Use case name
-    Verify signup with username, email, and password.
-Description
-    Test the "Weekend in Miami - Signup" page and user experience
-Pre-conditions
-    User is able to navigate to the "/signup" URL. User will input a valid username, email, and password and be provided with the requirements for each of those fields in the sgnup form.
-Test steps
-    1. User can visit the signup page at "/signup"
-    2. Provide valid user name (no special characters)
-    3. Provide valid email (validated with regex)
-    4. Provide valid password (1 each of uppercase, lowercase, number, and special character)
-    5. Click Signup button
-Expected Result
-    User should be able to signup with valid credentials and should be stopped from signup if their credentials are invalid. Once signd up successfully, a user should automatically be logged in and redirected to the trip planner steps in the application.
-Actual Result
-    -
-Status (Pass/Fail)
-    -
-Notes
-    N/A
-Post-conditions
-    The user's inforation is stored in the database securely, with their password hashed (using bcrypt) before being stored in the DB. The user is notified that their signup was successful and that they are able to start planning their trip.
+#### Use case name:
+Verify signup with username, email, and password.
+
+#### Description
+Test the "Weekend in Miami - Signup" page and user experience
+
+#### Pre-conditions
+User is able to navigate to the "/signup" URL. User will input a valid username, email, and password and be provided with the requirements for each of those fields in the sgnup form.
+
+#### Test steps
+1. User can visit the signup page at "/signup"
+2. Provide valid user name (no special characters)
+3. Provide valid email (validated with regex)
+4. Provide valid password (1 each of uppercase, lowercase, number, and special character)
+5. Click Signup button
+
+#### Expected Result
+User should be able to signup with valid credentials and should be stopped from signup if their credentials are invalid. Once signd up successfully, a user should automatically be logged in and redirected to the trip planner steps in the application.
+
+#### Actual Result
+-
+
+#### Status (Pass/Fail)
+-
+
+#### Notes
+N/A
+
+#### Post-conditions
+The user's inforation is stored in the database securely, with their password hashed (using bcrypt) before being stored in the DB. The user is notified that their signup was successful and that they are able to start planning their trip.
 
 ### 2. Validate Login Functionalty
 Use case name
-    Verify login with valid user name and password
+Verify login with valid user name and password
 Description
     Test the "Weekend in Miami - Login" page and user experience
 Pre-conditions
