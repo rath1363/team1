@@ -1,4 +1,19 @@
-# User Acceptance Tests
+# Project Milestone 3
+
+ - Project Title: Weekend in Miami
+ - Team Members: 
+     - Tara Panzarino
+     - Rajat Thaker
+     - Cody Thornton
+     - Brock Whitbread-Cole
+
+
+## --- AUTOMATED TEST CASES ---
+
+Please see branches 'tara' and 'cody-unittests' for automated test cases and instructions on how to run these tests. These tests are currently in beta and not yet merged into the main project. 
+
+
+## --- USER ACCEPTANCE TESTS ---
 
 The following user acceptance tests will test the signup, login, and logout capabilities of a user who wants to create an account on the application and use that account to plan their weekend in Miami. In general, a user should be able to create an account, access that account and the functionality of the app through that account, and be able to leave their account and log out of the app at any time.
 
