@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <center>
+  <div>
     <h1>My Weekend in Miami</h1>
-  </center>
+  
+    <form action="/budget" method="POST">
+      <input type="number" name="budget" id="budget" />
+      <input type="submit" value="Submit!">
+    </form>
+  </div>
 {% endblock content %}

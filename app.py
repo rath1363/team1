@@ -5,7 +5,7 @@
 # 
 #
 
-from flask import (Flask, redirect, render_template, url_for)
+from flask import (Flask, redirect, render_template, url_for, request)
 from markupsafe import escape
 
 
@@ -22,11 +22,22 @@ def welcome():
     return render_template('welcome.html')
 
 
-@app.route('/budget')
+@app.route('/budget', methods=['POST'])
 def budget():
-    return render_template('budget.html')
+    budget_amount = request.form.get('budget')
+    print("===========")
+    print(budget_amount)
+    print("===========")
+
+    return render_template('budget.html', budget_amount=budget_amount)
 
 
+@app.route('/itinerary')
+def itinerary():
+    return render_template('itinerary.html')
+
+
+# 
 @app.route('/lodging')
 def lodging():
     return render_template('lodging.html')
@@ -40,12 +51,6 @@ def meals():
 @app.route('/entertainment')
 def entertainment():
     return render_template('entertainment.html')
-
-
-@app.route('/itinerary')
-def itinerary():
-    return render_template('itinerary.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
