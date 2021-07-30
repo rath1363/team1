@@ -85,7 +85,7 @@ class hotelTest(unittest.TestCase):
         max_cost_pref_2 = 49
         min_rating_pref_2 = 1
         item_2 = hotel_setup.Hotel(dbname, max_cost_pref_2, min_rating_pref_2)
-        item_2.pick_hotel
+        item_2.pick_hotel()
         self.assertTrue(item_2.name == "N/A")
         self.assertTrue(item_2.rating == 0)
         self.assertTrue(item_2.cost == 0)
