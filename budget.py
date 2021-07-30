@@ -40,15 +40,9 @@ class Budget:
         if (type(maxbudget) != int):
             raise TypeError("parameter 'maxbudget' must be integer")
 
-        self.transportation = maxbudget * 0.33
-        self.accomodations = maxbudget * 0.33
-        self.activities = maxbudget * 0.15
-        self.meals = maxbudget * 0.11
-        self.other = maxbudget * 0.08
-        self.total = maxbudget
-
-    def get_total(self):
-        """
-        Returns maxbudget
-        """
-        return total
+        self.transportation = int(maxbudget * 0.33)
+        self.accomodations = int(maxbudget * 0.33)
+        self.activities = int(maxbudget * 0.15)
+        self.meals = int(maxbudget * 0.11)
+        self.other = int(maxbudget * 0.08)
+        self.total = int(maxbudget)
