@@ -5,6 +5,7 @@
 #
 
 import budget
+import hotel_setup
 import activities
 import db           # Used to build temporary database
 import os           # Used to delete temporary database
@@ -17,7 +18,7 @@ on their weekend in Miami and outputs a weekend itinerary that satisfies these
 budget constraints.
 
 This module calls on the Budget, Hotel, Activties, and Meals modules. An
-instance of each of these classes is member attribute of each instance of
+instance of each of these classes is a member attribute of each instance of
 the Itinerary class.
 
 
@@ -38,16 +39,17 @@ class Itinerary:
         trip_budget = budget.Budget(maxbudget)
 
         # Initialize temporary database
+        #     TO DO: parse restarant csv
         dbname = "temporary.db"
         db.create(dbname)
-        # db.parseLodging(dbname)
+        db.parseLodging(dbname)
         db.parseEnt(dbname)
         # db.parseRest(dbname)
 
-        # TO DO: Choose hotel
-        # hotel = hotels.Hotel(trip_budget.accomodations, dbname)
-        # hotel.pick_hotel()
-        # self.hotel = hotel
+        # Choose hotel
+        hotel = hotel_setup.Hotel(dbname, trip_budget.accomodations, 1)
+        hotel.pick_hotel()
+        self.hotel = hotel
 
         # Choose entertainment
         ent = activities.Activities(trip_budget.activities, dbname)
@@ -71,7 +73,9 @@ class Itinerary:
 
     def get_itinerary_str(self):
         output  = f"-- Itinerary -- \n\n"
-        output += f"Hotel: \n\n"
+        output += f"Hotel: {self.hotel.name}\n"
+        output += f"       ${self.hotel.cost} per night\n"
+        output += f"       ${self.hotel.cost * 2} total\n\n"
         output += f"Friday \n"
         output += f"    Activities: \n"
         output += f"        Morning:   N/A \n"
@@ -112,7 +116,7 @@ class Itinerary:
 
 
     def get_expenses_str(self):
-        #hotel_exp =
+        hotel_exp = self.hotel.cost * 2
         ent_exp   = (self.ent.friday_eve[8] + self.ent.saturday_mor[8] +
                      self.ent.saturday_aft[8] + self.ent.saturday_eve[8] +
                      self.ent.sunday_mor[8])
@@ -120,7 +124,7 @@ class Itinerary:
         #total_exp = hotel_exp + ent_exp + meals_exp
 
         output  = f"-- Expenses -- \n\n"
-        output += f"Lodging: \n"
+        output += f"Lodging: ${hotel_exp}\n"
         output += f"Meals:   \n"
         output += f"Entertainment: ${ent_exp}\n\n"
         output += f"TOTAL: \n"
