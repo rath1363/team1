@@ -4,7 +4,7 @@ import sqlite3
 
 
 """
-This module sets up the Restaurant Constructor and the function used to detirmine the pertinant resturaunt information.
+This module sets up the Restaurant Constructor and the function used to detirmine the pertinant Restaurant information.
 
 
 """
@@ -33,16 +33,16 @@ class Restaurant:
             raise TypeError("Hotel input 'min_price_pref' must be an int")
 
         if min_cost_pref_dollars <= 0:
-            raise Exception("Resturaunt input min_cost_pref_dollars must be greater than 0")
+            raise Exception("Restaurant input min_cost_pref_dollars must be greater than 0")
         
         if max_cost_pref_dollars <= 0:
-            raise Exception("Resturaunt input max_cost_pref_dollars must be greater than 0")
+            raise Exception("Restaurant input max_cost_pref_dollars must be greater than 0")
 
         if (type(dbname) != str):
             raise TypeError("Hotel input 'dbname' must be string")
 
         if min_cost_pref_dollars > max_cost_pref_dollars:
-            raise Exception("Resturaunt input 'max_cost_pref_dollars' must be greater than min_cost_pref_dollars")
+            raise Exception("Restaurant input 'max_cost_pref_dollars' must be greater than min_cost_pref_dollars")
 
         min_cost_pref = self.dollar_conversion_helper(min_cost_pref_dollars)
         max_cost_pref = self.dollar_conversion_helper(max_cost_pref_dollars)
