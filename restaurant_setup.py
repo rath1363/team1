@@ -9,34 +9,47 @@ This module sets up the Restaurant Constructor and the function used to detirmin
 
 """
 
-class Restaurant:
-    def __init__(self, dbname, min_cost_pref, max_cost_pref):
 
-        if type(max_cost_pref) != int:
+class Restaurant:
+
+    @staticmethod
+    def dollar_conversion_helper(dollar_input):
+        if dollar_input >= 50:
+            return 4
+        elif 25 <  dollar_input < 50:
+            return 3
+        elif 10 < dollar_input <= 25:
+            return 2
+        else:
+            return 1
+
+
+    def __init__(self, dbname, min_cost_pref_dollars, max_cost_pref_dollars):
+
+        if type(max_cost_pref_dollars) != int:
             raise TypeError("Hotel input 'max_price_pref' must be an int")
 
-        if type(min_cost_pref) != int:
+        if type(min_cost_pref_dollars) != int:
             raise TypeError("Hotel input 'min_price_pref' must be an int")
+
+        if min_cost_pref_dollars <= 0:
+            raise Exception("Resturaunt input min_cost_pref_dollars must be greater than 0")
+        
+        if max_cost_pref_dollars <= 0:
+            raise Exception("Resturaunt input max_cost_pref_dollars must be greater than 0")
 
         if (type(dbname) != str):
             raise TypeError("Hotel input 'dbname' must be string")
 
-        if max_cost_pref > 4:
-            raise Exception("Resturaunt input 'max_cost_pref' must be 4 or lower")
+        if min_cost_pref_dollars > max_cost_pref_dollars:
+            raise Exception("Resturaunt input 'max_cost_pref_dollars' must be greater than min_cost_pref_dollars")
 
-        if max_cost_pref < 1:
-            raise Exception("Resturaunt input 'max_cost_pref' must be 1 or greater")
-
-        if min_cost_pref > 4:
-            raise Exception("Resturaunt input 'max_cost_pref' must be 4 or lower")
-
-        if min_cost_pref < 1:
-            raise Exception("Resturaunt input 'max_cost_pref' must be 1 or greater")
-
-        if min_cost_pref > max_cost_pref:
-            raise Exception("Resturaunt input 'max_cost_pref' must be greater than min_cost_pref")
+        min_cost_pref = self.dollar_conversion_helper(min_cost_pref_dollars)
+        max_cost_pref = self.dollar_conversion_helper(max_cost_pref_dollars)
 
         self.name = "N/A"
+        self.max_cost_pref_dollars = max_cost_pref_dollars
+        self.min_cost_pref_dollars = min_cost_pref_dollars
         self.max_cost_pref = max_cost_pref
         self.min_cost_pref = min_cost_pref
         self.cost = 0
@@ -64,5 +77,3 @@ class Restaurant:
                 return               
         conn.commit()
         conn.close()
-
-
