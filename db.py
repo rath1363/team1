@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sqlite3
 import os
 import csv
@@ -51,7 +53,6 @@ def parseEnt(dbname):
             if row[0] == 'Entertainment ID':
                 continue
             ent = row[:-5]
-            
             tag = row[-5:]
             for i in range(len(ent)):
                 if (ent[i] == "N/A" or ent[i] == "" or ent[i] == " "):
