@@ -6,8 +6,14 @@
 #
 
 from flask import (Flask, redirect, render_template, url_for, request)
-from markupsafe import escape
 
+from budget import Budget
+from hotel_setup import Hotel
+from restaurant_setup import Restaurant
+from activities import Activities
+from itinerary import Itinerary
+
+import db
 
 app = Flask(__name__)
 
@@ -24,12 +30,11 @@ def welcome():
 
 @app.route('/budget', methods=['POST'])
 def budget():
-    budget_amount = request.form.get('budget')
-    print("===========")
-    print(budget_amount)
-    print("===========")
+    budget_amount = int(request.form.get('budget'))
+    budget = Budget(budget_amount)
+    itinerary = Itinerary(budget_amount)
 
-    return render_template('budget.html', budget_amount=budget_amount)
+    return render_template('itinerary.html', trip_budget=budget_amount, itinerary=itinerary)
 
 
 @app.route('/itinerary')

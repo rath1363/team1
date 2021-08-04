@@ -1,19 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container-fluid mt-5 text-center">
+<div class="container-fluid mt-5">
   <div class="row">
     <div class="col-sm">
-      <h1 class="mb-3">My Weekend in Miami</h1>
-    
-      <p>Input the budget for your trip in the form below to recieve an itinerary for your Weekend in Miami.</p>
+      
+      <div class="text-center">
+        <h1 class="mb-3">My Weekend in Miami</h1>
+        <p>Input the budget for your trip in the form below to recieve an itinerary for your Weekend in Miami.</p>
+      </div>
 
       <form action="/budget" method="POST">
         <div class="form-group mb-3">
-          <input type="number" name="budget" id="budget" placeholder="0" aria-describedby="budgetHelp" />
+          <p><label for="">Budget (USD)</label></p>
+          <input type="number" name="budget" id="budget" placeholder="0" />
         </div>
+
         <input type="submit" value="Submit!">
       </form>
+    
     </div>
   </div>
 </div>
