@@ -9,7 +9,7 @@ def create(dbname):
     curs = conn.cursor()
 
     lodging = """CREATE TABLE Lodging (lodgingID VARCHAR(50) primary key, Name VARCHAR(100), Address VARCHAR(100), PhoneNumber INT, StarRating INT(1), Price DECIMAL)"""
-    restaurant = """CREATE TABLE Restaurant (restaurantID VARCHAR(50) primary key, Name VARCHAR(100), Address VARCHAR(100), PhoneNumber INT, Price DECIMAL)"""
+    restaurant = """CREATE TABLE Restaurant (restaurantID VARCHAR(50) primary key, Name VARCHAR(100), Address VARCHAR(100), PhoneNumber INT, Price varchar(4))"""
     entertainment = """CREATE TABLE Entertainment (entertainmentID VARCHAR(50), Description VARCHAR(50), Includes VARCHAR(50), Contact VARCHAR(50), StreetAddress VARCHAR(50),City VARCHAR(50),State VARCHAR(2), Zip VARCHAR(5), PricePerPerson INT, PriceTotal INT, PhoneNumber VARCHAR(12), GoogleRating INT, URL varchar(100), OpeningTime varchar(20),ClosingTime varchar(20),Morning boolean,Afternoon boolean,Evening boolean,ChildFriendly boolean)"""
     tags = """CREATE TABLE Tags (lodgingID varchar(50), restaurantID varchar(50), entertainmentID varchar(50), tags varchar(50))"""
 
@@ -73,17 +73,17 @@ def parseRest(dbname):
     conn = sqlite3.connect(dbname)
     curr = conn.cursor()
 
-    abspath = os.path.abspath('resources/lodging.csv')
+    abspath = os.path.abspath('resources/restaurant.csv')
     with open(abspath, newline='') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
-            if row[0] == 'Lodging ID':
+            if row[0] == 'Restaurant ID':
                 continue
-            _id, name, address, number, rating, price = row[0], row[1], row[2], int(row[3].replace("-", "")), row[4], row[5]
-            tag = row[6:9]
-            lodging = """INSERT INTO Lodging values (?, ?, ?, ?, ?, ?)"""
+            _id, name, address, number, price = row[0], row[1], row[2], int(row[3].replace("-", "").replace(" ", "")), row[4]
+            tag = row[5:]
+            lodging = """INSERT INTO Restaurant values (?, ?, ?, ?, ?)"""
             tags = """insert into Tags values (NULL, ?, NULL, ?)"""
-            curr.execute(lodging, (_id, name, address, number, rating, price))
+            curr.execute(lodging, (_id, name, address, number, price))
             for i in tag:
                 curr.execute(tags, (_id, i))
 

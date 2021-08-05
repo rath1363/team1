@@ -9,12 +9,12 @@ class DBTestCase(unittest.TestCase):
         db.create('test.db')
         db.parseLodging('test.db')
         db.parseEnt('test.db')
+        db.parseRest("test.db")
         # print("g")
         self.conn = sqlite3.connect('test.db')
         self.cur = self.conn.cursor()
 
     def tearDown(self):
-
         self.cur.execute('''DROP TABLE Lodging''')
         self.cur.execute('''DROP TABLE Restaurant''')
         self.cur.execute('''DROP TABLE Entertainment''')
@@ -23,8 +23,7 @@ class DBTestCase(unittest.TestCase):
         self.conn.close()
         os.remove('test.db')
 
-    def test_lodging(self):   #, 
-
+    def test_lodging(self):
         self.cur.execute("select Lodging.lodgingID, name, address, tags from Lodging join Tags on Lodging.lodgingID = Tags.lodgingID")
         rows = self.cur.fetchall()
         for i in rows:
@@ -32,7 +31,14 @@ class DBTestCase(unittest.TestCase):
             pass
 
     def test_ent(self):
-        self.cur.execute("select * from Entertainment as e JOIN Tags as t ON e.entertainmentID = t.entertainmentID")
+        self.cur.execute("select * from Entertainment")
+        rows = self.cur.fetchall()
+        for i in rows:
+            # print(i)
+            pass
+
+    def test_rest(self):
+        self.cur.execute("select * from Restaurant as r join Tags as t on r.RestaurantID = t.RestaurantID")
         rows = self.cur.fetchall()
         for i in rows:
             print(i)
