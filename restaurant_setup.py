@@ -34,7 +34,7 @@ class Restaurant:
 
         if min_cost_pref_dollars <= 0:
             raise Exception("Restaurant input min_cost_pref_dollars must be greater than 0")
-        
+
         if max_cost_pref_dollars <= 0:
             raise Exception("Restaurant input max_cost_pref_dollars must be greater than 0")
 
@@ -58,6 +58,9 @@ class Restaurant:
         self.database = dbname
 
 
+    #
+    # Edited to return list of five restaurants (Cody 8/5/2021)
+    #
     def pick_restaurant(self):
         conn = sqlite3.connect(self.database)
         curr = conn.cursor()
@@ -66,14 +69,19 @@ class Restaurant:
         curr.execute(query)
         records = curr.fetchall()
         shuffled_records = random.sample(records, len(records))
+        ret_list = []
+        print(shuffled_records)
         for row in shuffled_records:
             if row[4] <= self.max_cost_pref and row[4] >= self.min_cost_pref:
+                ret_list.append(row)
+                shuffled_records.remove(row)
                 self.name = row[1]
                 self.address = row[2]
                 self.phone = row[3]
-                self.cost = row[4] 
-                conn.commit()
-                conn.close()
-                return               
+                self.cost = row[4]
+                if (len(ret_list) >= 5):
+                    conn.commit()
+                    conn.close()
+                    return ret_list
         conn.commit()
         conn.close()
