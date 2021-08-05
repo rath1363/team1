@@ -73,18 +73,20 @@ def parseRest(dbname):
     conn = sqlite3.connect(dbname)
     curr = conn.cursor()
 
-    abspath = os.path.abspath('resources/lodging.csv')
+    abspath = os.path.abspath('resources/restaurant.csv')
     with open(abspath, newline='') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
-            if row[0] == 'Lodging ID':
+            if row[0] == 'Restaurant ID':
                 continue
-            _id, name, address, number, rating, price = row[0], row[1], row[2], int(row[3].replace("-", "")), row[4], row[5]
-            tag = row[6:9]
-            lodging = """INSERT INTO Lodging values (?, ?, ?, ?, ?, ?)"""
+            _id, name, address, number, price = row[0], row[1], row[2], int(row[3].replace("-", "").replace(" ", "")), row[4]
+            tag = row[5:]
+            lodging = """INSERT INTO Restaurant values (?, ?, ?, ?, ?)"""
             tags = """insert into Tags values (NULL, ?, NULL, ?)"""
-            curr.execute(lodging, (_id, name, address, number, rating, price))
+            curr.execute(lodging, (_id, name, address, number, price))
             for i in tag:
+                if i == "":
+                    continue
                 curr.execute(tags, (_id, i))
 
     conn.commit()
