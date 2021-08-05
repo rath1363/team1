@@ -85,6 +85,8 @@ def parseRest(dbname):
             tags = """insert into Tags values (NULL, ?, NULL, ?)"""
             curr.execute(lodging, (_id, name, address, number, price))
             for i in tag:
+                if i == "":
+                    continue
                 curr.execute(tags, (_id, i))
 
     conn.commit()
