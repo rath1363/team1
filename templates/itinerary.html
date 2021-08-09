@@ -1,33 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="hero itinerary"></div>
 <div class="container-fluid mt-5">
   <div class="row">
     <div class="col-12">
 
-      <div class="text-center">
+      <div class="text-center mb-5">
         <h1 class="mb-3">Itinerary</h1>
-        <p>Here is your planned itinerary based on your budget of: ${{ trip_budget }}</p>
+        <p class="lead">Here is your planned itinerary based on your budget of: ${{ trip_budget }}</p>
       </div>
 
-      <div class="hotel">
-        <span>Hotel</span>
-        <h2>{{ itinerary.hotel.name }}</h2>
-        <p>{{ itinerary.hotel.address }}</p>
-        <p>{{ itinerary.hotel.phone }}</p>
-        <p>Rating: {{ itinerary.hotel.rating }}</p>
-        <p>${{ itinerary.hotel.cost}} per night</p>
-        <p>${{ (itinerary.hotel.cost * 2) }} total</p>
+      <div class="hotel row justify-content-center mb-5">
+        <div class="col-4">
+          <span>Hotel</span>
+          <h2>{{ itinerary.hotel.name }}</h2>
+          <p class="mb-0">{{ itinerary.hotel.address }}</p>
+          <p class="mb-0">Phone: {{ itinerary.hotel.phone }}</p>
+          <p>Rating: {{ itinerary.hotel.rating }}</p>
+
+          <h4 class="mt-4">Cost:</h4>
+          <p>${{ itinerary.hotel.cost}} per night / ${{ (itinerary.hotel.cost * 2) }} total</p>
+        </div>
       </div>
 
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-12">
-      <span>Activities and Meals</span>
+  <div class="row mb-5">
+    <h2 class="text-center mb-3">Activities and Meals</h2>
 
-      <div class="card daily friday m-3">
+    <div class="col col-12 col-lg-4">
+      <div class="card daily friday">
         <h2 class="card-header">Friday</h2>
 
         <div class="card-body">
@@ -35,10 +39,10 @@
 
             <div class="activities col-6">
               <h5>Activities</h5>
-              <p class="card-subtitle">Morning: N/A</p>
-              <p class="card-subtitle">Afternoon: Arrival</p>
-              <p class="card-subtitle">Evening:</p>
-              <ul class="list-group">
+              <p class="card-subtitle mb-2">Morning: N/A</p>
+              <p class="card-subtitle mb-2">Afternoon: Arrival</p>
+              <p class="card-subtitle mb-2">Evening:</p>
+              <ul class="list-group mb-2">
                 <li class="list-group-item">
                   <a target="_blank" href="{{ itinerary.ent.friday_eve[12] }}">{{ itinerary.ent.friday_eve[1] }}</a>
                 </li>
@@ -48,7 +52,7 @@
 
             <div class="meals col-6">
               <h5>Meals</h5>
-              <ul class="list-group">
+              <ul class="list-group mb-2">
                 <li class="list-group-item">Breakfast: N/A</li>
                 <li class="list-group-item">Lunch: N/A</li>
                 <li class="list-group-item">Dinner: {{ itinerary.meals[0][1] }} (${{ itinerary.get_rest_price(itinerary.meals[0][4]) }})</li>
@@ -58,34 +62,35 @@
           </div>
         </div>
       </div>
-
-      <div class="card daily saturday m-3">
+    </div>
+    <div class="col col-12 col-lg-4">
+      <div class="card daily saturday">
         <h2 class="card-header">Saturday</h2>
 
         <div class="card-body">
           <div class="row">
             <div class="activities col-6">
               <h5>Activities</h5>
-              <p class="card-subtitle">Morning:</p>
-              <ul class="list-group">
+              <p class="card-subtitle mb-2">Morning:</p>
+              <ul class="list-group mb-2">
                 <li class="list-group-item"><a href="{{ itinerary.ent.saturday_mor[12] }}">{{ itinerary.ent.saturday_mor[1] }}</a></li>
                 <li class="list-group-item">Cost: ${{ itinerary.ent.saturday_mor[8] }}</li>
               </ul>
-              <p class="card-subtitle">Afternoon:</p>
-              <ul class="list-group">
+              <p class="card-subtitle mb-2">Afternoon:</p>
+              <ul class="list-group mb-2">
                 <li class="list-group-item"><a href="{{ itinerary.ent.saturday_aft[12] }}">{{ itinerary.ent.saturday_aft[1] }}</a></li>
                 <li class="list-group-item">Cost: ${{ itinerary.ent.saturday_aft[8] }}</li>
               </ul>
-              <p class="card-subtitle">Evening:</p>
-              <ul class="list-group">
+              <p class="card-subtitle mb-2">Evening:</p>
+              <ul class="list-group mb-2">
                 <li class="list-group-item"><a href="{{ itinerary.ent.saturday_eve[12] }}">{{ itinerary.ent.saturday_eve[1] }}</a></li>
                 <li class="list-group-item">Cost: ${{ itinerary.ent.saturday_eve[8] }}</li>
               </ul>
             </div>
 
             <div class="meals col-6">
-              <h3>Meals</h3>
-              <ul class="list-group">
+              <h5>Meals</h5>
+              <ul class="list-group mb-2">
                 <li class="list-group-item">Breakfast: {{ itinerary.meals[1][1] }} (${{ itinerary.get_rest_price(itinerary.meals[1][4]) }})</li>
                 <li class="list-group-item">Lunch: {{ itinerary.meals[2][1] }} (${{ itinerary.get_rest_price(itinerary.meals[2][4]) }})</li>
                 <li class="list-group-item">Dinner: {{ itinerary.meals[3][1] }} (${{ itinerary.get_rest_price(itinerary.meals[3][4]) }})</li>
@@ -95,30 +100,31 @@
         </div>
       </div>
     </div>
+    <div class="col col-12 col-lg-4">
+      <div class="card daily sunday">
+        <h2 class="card-header">Sunday</h2>
 
-    <div class="card daily sunday m-3">
-      <h2 class="card-header">Sunday</h2>
+        <div class="card-body">
+          <div class="row">
+            <div class="activities col-6">
+              <h5>Activities</h5>
+              <p class="card-subtitle mb-2">Morning:</p>
+              <ul class="list-group mb-2">
+                <li class="list-group-item"><a href="{{ itinerary.ent.sunday_mor[12] }}">{{ itinerary.ent.sunday_mor[1] }}</a></li>
+                <li class="list-group-item">Cost: ${{ itinerary.ent.sunday_mor[8] }}</li>
+              </ul>
+              <p class="card-subtitle mb-2">Afternoon: Departure</p>
+              <p class="card-subtitle mb-2">Evening: N/A</p>
+            </div>
 
-      <div class="card-body">
-        <div class="row">
-          <div class="activities col-6">
-            <h5>Activities</h5>
-            <p class="card-subtitle">Morning:</p>
-            <ul class="list-group">
-              <li class="list-group-item"><a href="{{ itinerary.ent.sunday_mor[12] }}">{{ itinerary.ent.sunday_mor[1] }}</a></li>
-              <li class="list-group-item">Cost: ${{ itinerary.ent.sunday_mor[8] }}</li>
-            </ul>
-            <p class="card-subtitle">Afternoon: Departure</p>
-            <p class="card-subtitle">Evening: N/A</p>
-          </div>
-
-          <div class="meals col-6">
-            <h5>Meals</h5>
-            <ul class="list-group">
-              <li class="list-group-item">Breakfast: {{ itinerary.meals[4][1] }} (${{ itinerary.get_rest_price(itinerary.meals[4][4]) }})</li>
-              <li class="list-group-item">Lunch: N/A</li>
-              <li class="list-group-item">Dinner: N/A</li>
-            </ul>
+            <div class="meals col-6">
+              <h5>Meals</h5>
+              <ul class="list-group mb-2">
+                <li class="list-group-item">Breakfast: {{ itinerary.meals[4][1] }} (${{ itinerary.get_rest_price(itinerary.meals[4][4]) }})</li>
+                <li class="list-group-item">Lunch: N/A</li>
+                <li class="list-group-item">Dinner: N/A</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

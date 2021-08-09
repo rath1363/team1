@@ -1,0 +1,18 @@
+.hero {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+.hero.budget {
+  background-image: url(https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80);
+}
+
+.hero.itinerary {
+  background-image: url(https://images.unsplash.com/photo-1476984251899-8d7fdfc5c92c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80);
+}
+
+.hero.about {
+  background-image: url(https://images.unsplash.com/photo-1578522199427-c82a3ff80b4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1654&q=80);
+}

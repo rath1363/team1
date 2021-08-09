@@ -19,14 +19,12 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def index():
-    return redirect('/welcome')
-
-
-@app.route('/welcome')
-def welcome():
+def home():
     return render_template('welcome.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/budget', methods=['POST'])
 def budget():

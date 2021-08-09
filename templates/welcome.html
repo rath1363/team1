@@ -1,22 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="hero budget"></div>
+
 <div class="container-fluid mt-5">
-  <div class="row">
-    <div class="col-sm">
+  <div class="row mb-5">
+    <div class="col-sm-8 offset-md-2 col-lg-4 offset-lg-4">
       
-      <div class="text-center">
+      <div>
         <h1 class="mb-3">My Weekend in Miami</h1>
-        <p>Input the budget for your trip in the form below to recieve an itinerary for your Weekend in Miami.</p>
+        <p class="lead">Input the budget for your trip in the form below to recieve an itinerary for your Weekend in Miami.</p>
       </div>
 
-      <form action="/budget" method="POST">
-        <div class="form-group mb-3">
-          <p><label for="">Budget (USD)</label></p>
-          <input type="number" name="budget" id="budget" placeholder="0" />
-        </div>
+    </div>
+  </div>
 
-        <input type="submit" value="Submit!">
+  <div class="row mb-5">
+    <div class="col-sm-8 offset-md-2 col-lg-4 offset-lg-4">
+
+      <form action="/budget" method="POST">
+        <div class="mb-3">
+          <p><label class="form-label" for="budget">Budget (USD)</label></p>
+          <input type="number" name="budget" id="budget" class="form-control-lg" min="500" />
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit!">
       </form>
     
     </div>
