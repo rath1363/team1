@@ -72,7 +72,7 @@ class Restaurant:
         ret_list = []
         print(shuffled_records)
         for row in shuffled_records:
-            if row[4] <= self.max_cost_pref and row[4] >= self.min_cost_pref:
+            if int(row[4]) <= self.max_cost_pref and int(row[4]) >= self.min_cost_pref:
                 ret_list.append(row)
                 shuffled_records.remove(row)
                 self.name = row[1]
